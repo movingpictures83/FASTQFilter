@@ -1,0 +1,2 @@
+fastqfile	input.fastq
+samfile	filter.sam
