@@ -18,7 +18,7 @@ class FASTQFilterPlugin:
 
     def output(self, outfile):
        outfastq = open(outfile, 'w')
-
+       outfastq2 = open(outfile+".rejected.fastq", 'w')
        pos = 0
        for line in self.fastqfile:
           if (pos % 4 == 0):
@@ -31,6 +31,9 @@ class FASTQFilterPlugin:
               if (seqname not in self.aligned):
                   for i in range(0, 4):
                       outfastq.write(lines[i])
+              else:
+                  for i in range(0, 4):
+                      outfastq2.write(lines[i])
           else:
               lines.append(line)
           pos += 1
